@@ -1,0 +1,9 @@
+world-border:
+  world:
+    centerX: 0.0
+    centerZ: 0.0
+    size: 1000.0
+  world2:
+    centerX: 0.0
+    centerZ: 0.0
+    size: 1000.0
