@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/ArkTools.main.iml" filepath="$PROJECT_DIR$/.idea/modules/ArkTools.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/cn.yvmou.ArkTools.main.iml" filepath="$PROJECT_DIR$/.idea/modules/cn.yvmou.ArkTools.main.iml" />
     </modules>
   </component>
 </project>
