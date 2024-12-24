@@ -10,6 +10,7 @@ import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerRespawnEvent;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -93,8 +94,6 @@ public class PlayerListener implements Listener {
     }
     @EventHandler
     public void onPlayerRespawn(PlayerRespawnEvent event) {
-        Bukkit.getConsoleSender().sendMessage("玩家重生");
-        Player player = event.getPlayer();
-        player.addPotionEffect(new PotionEffect(PotionEffectType.SLOWNESS, 1200, 2));
+        Bukkit.getConsoleSender().sendMessage("玩家重生了");
     }
 }
