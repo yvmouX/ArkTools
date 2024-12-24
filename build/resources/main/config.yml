@@ -18,6 +18,8 @@ world-border:
 # 死亡惩罚
 punishments:
   enable: false
+  # 死亡是否清除玩家背包
+  clearInventory: true
   # 死亡是否清除玩家末影箱
   clearEnderchest: true
   # 死亡是否重置玩家经验值

@@ -1,7 +1,7 @@
 name: ArkTools
 version: '1.0-SNAPSHOT'
 main: cn.yvmou.arktools.ArkTools
-api-version: '1.21'
+api-version: '1.13'
 prefix: ArkTools
 authors: [ yvmou ]
 description: tools
