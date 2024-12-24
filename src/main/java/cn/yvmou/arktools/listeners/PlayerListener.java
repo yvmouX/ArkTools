@@ -5,6 +5,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeInstance;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
@@ -40,38 +41,23 @@ public class PlayerListener implements Listener {
     }
 
     // 玩家死亡事件
-    @EventHandler
+    @EventHandler(priority = EventPriority.HIGHEST)
     public void onPlayerDeath(PlayerDeathEvent event) {
         var player = event.getEntity();
         if (!player.hasPermission("arktools.deathpunish.bypass")) {
             if (plugin.getConfig().getBoolean("punishments.enable")) {
-                // 墓碑功能 enableEpitaph: true
-//                if (plugin.getConfig().getBoolean("punishments.enableEpitaph")) {
-//                    var position = player.getLocation();
-//
-//                    position.getBlock().setType(Material.BEDROCK);
-////                List<String> epitaphs = epitaphConfig.getStringList("defaultEpitaph");
-////                if (!epitaphs.isEmpty()) {
-////                    Random random = new Random();
-////                    String selectedEpitaph = epitaphs.get(random.nextInt(epitaphs.size()));
-////                    // 创建悬浮文本
-////                    NMSUtil.createFloatingText(position.clone().add(0, 1, 0), selectedEpitaph);
-////                }
-//                    Epitaph.createFloatingText(position.clone().add(0, 1, 0), "§4§l" + player.getName() + "死于此地");
-//                }
-
-                // 清除玩家背包
-                if (plugin.getConfig().getBoolean("punishments.clearInventory")) {
-                    player.getInventory().clear();
-                }
-                // 清除玩家末影箱
-                if (plugin.getConfig().getBoolean("punishments.clearEnderchest")) {
-                    player.getEnderChest().clear();
-                }
-                // 重置玩家经验
-                if (plugin.getConfig().getBoolean("punishments.resetExp")) {
-                    player.setLevel(0);
-                    player.setTotalExperience(0);
+                try {
+                    // 清除玩家背包
+                    if (plugin.getConfig().getBoolean("punishments.clearInventory")) {
+                        player.getInventory().clear();
+                    }
+                    // 重置玩家经验
+                    if (plugin.getConfig().getBoolean("punishments.resetExp")) {
+                        player.setLevel(0);
+                        player.setTotalExperience(0);
+                    }
+                } catch (Exception e) {
+                    Bukkit.getConsoleSender().sendMessage("清除失败");
                 }
 
             }
@@ -81,7 +67,7 @@ public class PlayerListener implements Listener {
     }
 
     // 玩家重生事件
-    @EventHandler
+    @EventHandler(priority = EventPriority.HIGHEST)
     public void onPlayerRespawn(PlayerRespawnEvent event) {
         Bukkit.getConsoleSender().sendMessage("PlayerRespawnEvent调用成功");
         var player = event.getPlayer();
