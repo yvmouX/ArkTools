@@ -1,29 +1,46 @@
 package cn.yvmou.arktools;
 
-import cn.yvmou.arktools.commands.WorldBorderCommand;
+import cn.yvmou.arktools.listeners.CustomItemListener;
+import cn.yvmou.arktools.listeners.PlayerListener;
+import org.bukkit.Bukkit;
+import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.plugin.java.JavaPlugin;
+import org.bukkit.configuration.file.FileConfiguration;
 
 import java.util.Objects;
 
-
 public final class ArkTools extends JavaPlugin {
+    public final static String VERSION = "1.0.0";
+    public ShapedRecipe enchantedGoldenAppleRecipe;
 
     @Override
     public void onEnable() {
-
         // 如果配置文件不存在，Bukkit 会保存默认的配置
         saveDefaultConfig();
         // 注册命令执行器
-        Objects.requireNonNull(getCommand("arktools")).setExecutor(new WorldBorderCommand(this));
+        Objects.requireNonNull(getCommand("arktools")).setExecutor(new MainCommand(this));
         // 注册命令补全器
-        Objects.requireNonNull(getCommand("arktools")).setTabCompleter(new WorldBorderCommand(this));
+        Objects.requireNonNull(getCommand("arktools")).setTabCompleter(new MainCommand(this));
+        // 注册事件监听器
+        getServer().getPluginManager().registerEvents(new PlayerListener(this), this);
+        getServer().getPluginManager().registerEvents(new CustomItemListener(this), this);
+        // 注册自定义物品的配方
+        FileConfiguration config = getConfig();
+        registerCustomRecipes(config);
 
+        Bukkit.getConsoleSender().sendMessage("ArkTools 已启用");
     }
 
+    // 注册自定义物品的配方
+    public void registerCustomRecipes(FileConfiguration config) {
+        enchantedGoldenAppleRecipe = CustomItems.createEnchantedGoldenApple(config);
+        getServer().addRecipe(enchantedGoldenAppleRecipe);
+    }
 
     @Override
     public void onDisable() {
-        // Plugin shutdown logic
+        Bukkit.getConsoleSender().sendMessage("ArkTools 已关闭");
     }
 }
+
 
