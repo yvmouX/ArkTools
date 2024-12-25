@@ -88,8 +88,4 @@ public class PlayerDeathListener implements Listener {
             }
         }
     }
-    @EventHandler
-    public void onPlayerRespawn(PlayerRespawnEvent event) {
-        Bukkit.getConsoleSender().sendMessage("玩家重生了");
-    }
 }
