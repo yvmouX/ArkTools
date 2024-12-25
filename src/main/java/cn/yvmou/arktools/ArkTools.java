@@ -1,7 +1,7 @@
 package cn.yvmou.arktools;
 
 import cn.yvmou.arktools.listeners.CustomItemListener;
-import cn.yvmou.arktools.listeners.PlayerListener;
+import cn.yvmou.arktools.listeners.PlayerDeathListener;
 import org.bukkit.Bukkit;
 import org.bukkit.inventory.ShapedRecipe;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -22,7 +22,7 @@ public final class ArkTools extends JavaPlugin {
         // 注册命令补全器
         Objects.requireNonNull(getCommand("arktools")).setTabCompleter(new MainCommand(this));
         // 注册事件监听器
-        getServer().getPluginManager().registerEvents(new PlayerListener(this), this);
+        getServer().getPluginManager().registerEvents(new PlayerDeathListener(this), this);
         getServer().getPluginManager().registerEvents(new CustomItemListener(this), this);
         // 注册自定义物品的配方
         FileConfiguration config = getConfig();

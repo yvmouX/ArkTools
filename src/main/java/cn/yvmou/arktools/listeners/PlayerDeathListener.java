@@ -4,16 +4,12 @@ import cn.yvmou.arktools.ArkTools;
 import org.bukkit.Bukkit;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeInstance;
-import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
-import org.bukkit.potion.PotionEffect;
-import org.bukkit.potion.PotionEffectType;
-import org.bukkit.scheduler.BukkitRunnable;
 
 import java.util.Date;
 import java.util.Objects;
@@ -21,12 +17,12 @@ import java.util.Objects;
 import static cn.yvmou.arktools.ArkTools.VERSION;
 
 
-public class PlayerListener implements Listener {
+public class PlayerDeathListener implements Listener {
 
     // 插件实例
     private final ArkTools plugin;
 
-    public PlayerListener(ArkTools plugin) {
+    public PlayerDeathListener(ArkTools plugin) {
         this.plugin = plugin;
     }
 
