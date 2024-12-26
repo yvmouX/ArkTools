@@ -13,6 +13,7 @@ public class MessageUtil {
         sender.sendMessage(Component.text("/arktools deathpunish setmaxhealth", NamedTextColor.WHITE).append(Component.text(" 设置玩家生命上限", NamedTextColor.GRAY)));
         sender.sendMessage(Component.text("/arktools deathpunish add", NamedTextColor.WHITE).append(Component.text(" 增加玩家生命上限", NamedTextColor.GRAY)));
         sender.sendMessage(Component.text("/arktools deathpunish get", NamedTextColor.WHITE).append(Component.text(" 获取玩家生命上限", NamedTextColor.GRAY)));
+        sender.sendMessage(Component.text("/arktools hideOnMap get", NamedTextColor.WHITE).append(Component.text(" 获取隐藏地图物品", NamedTextColor.GRAY)));
         sender.sendMessage(Component.text("/arktools reload", NamedTextColor.WHITE).append(Component.text(" 重载插件", NamedTextColor.GRAY)));
         sender.sendMessage(Component.text("/arktools help", NamedTextColor.WHITE).append(Component.text(" 查看帮助", NamedTextColor.GRAY)));
         sender.sendMessage(Component.text("-------------------", NamedTextColor.WHITE));

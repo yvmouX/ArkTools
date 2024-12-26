@@ -26,18 +26,19 @@ public class DeathPunishCommand implements CommandExecutor {
             if (args[0].equals("deathpunish")) {
                 if (sender.hasPermission("arktools.deathpunish")) {
                     deathPunishCommand(sender, args);
+                    return true;
                 } else {
                     sender.sendMessage("你没有权限执行此命令.");
+                    return false;
                 }
-                return true;
             } else {
                 sender.sendMessage("未知子命令.");
                 return false;
             }
         } else {
             MessageUtil.sendHelpMessage(sender);
+            return false;
         }
-        return false;
     }
 
     // 死亡惩罚命令
