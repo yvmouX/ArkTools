@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ArkTools.iml" filepath="$PROJECT_DIR$/.idea/modules/ArkTools.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/ArkTools.main.iml" filepath="$PROJECT_DIR$/.idea/modules/ArkTools.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ArkTools.test.iml" filepath="$PROJECT_DIR$/.idea/modules/ArkTools.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/cn.yvmou.ArkTools.main.iml" filepath="$PROJECT_DIR$/.idea/modules/cn.yvmou.ArkTools.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/cn.yvmou.ArkTools.main~2.iml" filepath="$PROJECT_DIR$/.idea/modules/cn.yvmou.ArkTools.main~2.iml" />
     </modules>
   </component>
 </project>
