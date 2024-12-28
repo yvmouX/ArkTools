@@ -22,6 +22,12 @@ public class CustomItems {
         String shape1 = config.getString("customItems.heal_item.shape1", "yxy");
         String shape2 = config.getString("customItems.heal_item.shape2", "xbx");
         String shape3 = config.getString("customItems.heal_item.shape3", "yxy");
+
+        // 确保形状不为空
+        if (shape1.isEmpty() || shape2.isEmpty() || shape3.isEmpty()) {
+            throw new IllegalArgumentException("Recipe shape cannot be empty");
+        }
+
         @NotNull Map<String, Object> ingredients = Objects.requireNonNull(config.getConfigurationSection("customItems.heal_item.ingredients")).getValues(false);
 
         // 创建物品

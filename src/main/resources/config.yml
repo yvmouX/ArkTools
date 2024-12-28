@@ -1,5 +1,15 @@
 version: "1.0.0"
 
+# 相关命令权限
+# arktools.deathpunish 执行死亡惩罚相关命令的权限
+# arktools.hideonmap 执行隐藏雷达相关命令的权限
+# arktools.help 查看帮助的权限
+# arktools.reload 重载插件的权限
+# arktools.setworldborder 更改世界边界的权限
+# 其他权限
+# arktools.deathpunish.bypass 逃过死亡惩罚
+
+
 # 更改世界边界
 world-border:
   world:
@@ -19,13 +29,13 @@ world-border:
 punishments:
   enable: false
   # 死亡是否清除玩家背包
-  clearInventory: true
+  clearInventory: false
   # 死亡是否清除玩家末影箱
-  clearEnderchest: true
+  clearEnderchest: false
   # 死亡是否重置玩家经验值
   resetExp: false
   # 死亡时减少玩家生命上限
-  reduceMaxHealth: true
+  reduceMaxHealth: false
   # 死亡时减少的生命值
   reduceHealthAmount: 2.0
   # 血量上限为1时死亡后是否封禁玩家
