@@ -40,6 +40,8 @@ punishments:
   reduceHealthAmount: 2.0
   # 血量上限为1时死亡后是否封禁玩家
   banOnDeath: false
+  # 最小生命值
+  minHealth: 6.0
 
   # 触发死亡惩罚信息
   deathMsg: "§4§l你死了，你因此受到了惩罚！"
@@ -50,36 +52,7 @@ punishments:
 
 
 
-customItems:
-  # 不能自己添加物品
-  heal_item:
-    # 最大生命值，填入整数
-    maxHealth: 20
-    # 物品外观
-    material: "ENCHANTED_GOLDEN_APPLE"
-    # 显示名称
-    displayName: "§6生命果实"
-    # 描述
-    lore:
-      - "§7食用后恢复生命上限，并获取一些额外效果"
-    # 配方
-    shape1: "yxy"
-    shape2: "xbx"
-    shape3: "yxy"
-    ingredients:
-      x: "GOLD_BLOCK"
-      y: "DIAMOND_BLOCK"
-      b: "NETHER_STAR"
-    # 恢复量
-    heal_amount: 2
-    # 药水效果、持续时间和等级
-    potion_effects:
-      - "regeneration 2400 1"
-      - "absorption 600 1"
-    # 生命上限小于maxHealth时
-    eatMsg: "§a你食用了生命果实，恢复了生命上限并获得了额外效果！"
-    # 生命上限大于maxHealth时
-    eatWithoutHealMsg: "§a你食用了生命果实！§c但无法继续提高生命上限！"
+
 
 
 # Squraemap相关

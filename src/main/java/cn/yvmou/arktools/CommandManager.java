@@ -76,7 +76,7 @@ public class CommandManager implements CommandExecutor, TabCompleter {
     // 获取死亡惩罚Tab补全
     private List<String> getDeathPunishTabComplete(String[] args) {
         return switch (args.length) {
-            case 2 -> List.of("setmaxhealth", "add", "get");
+            case 2 -> List.of("setmaxhealth", "add", "get", "add20", "add40");
             case 3 -> plugin.getServer().getOnlinePlayers().stream().map(Player::getName).toList();
             case 4 -> List.of(args[1].equalsIgnoreCase("setmaxhealth") ? "<maxHealth>" : "<addHealth>");
             default -> List.of();

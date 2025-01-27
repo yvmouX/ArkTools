@@ -10,7 +10,6 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
-
 public class DeathPunishCommand implements CommandExecutor {
     // 插件实例
     private final ArkTools plugin;
@@ -59,6 +58,20 @@ public class DeathPunishCommand implements CommandExecutor {
                         sender.sendMessage("参数错误");
                     }
                 }
+                case "add20" -> {
+                    if (args.length == 4) {
+                        addMaxHealth20(sender, args);
+                    } else {
+                        sender.sendMessage("参数错误");
+                    }
+                }
+                case "add40" -> {
+                    if (args.length == 4) {
+                        addMaxHealth40(sender, args);
+                    } else {
+                        sender.sendMessage("参数错误");
+                    }
+                }
                 case "get" -> {
                     if (args.length == 3) {
                         getMaxHealth(sender, args);
@@ -90,6 +103,50 @@ public class DeathPunishCommand implements CommandExecutor {
                 }
             } else {
                 sender.sendMessage("玩家未找到");
+            }
+        } catch (NumberFormatException e) {
+            sender.sendMessage("参数错误");
+        }
+    }
+
+    // 增加玩家生命上限（范围：0-20）
+    private void addMaxHealth20(CommandSender sender, String[] args) {
+        try {
+            String playerName = args[2];
+            int addHealth = Integer.parseInt(args[3]);
+            Player targetPlayer = sender.getServer().getPlayer(playerName);
+            //获取玩家当前最大生命值
+            double currentMaxHealth = targetPlayer.getMaxHealth();
+            if (currentMaxHealth <= 20) {
+                // 设置新的生命值上限
+                double newMaxHealth = Math.min(currentMaxHealth + addHealth, 20);
+                // 设置新的生命值上限
+                targetPlayer.setMaxHealth(newMaxHealth);
+                sender.sendMessage("玩家生命上限已增加");
+            } else {
+                sender.sendMessage("玩家生命值已达上限");
+            }
+        } catch (NumberFormatException e) {
+            sender.sendMessage("参数错误");
+        }
+    }
+
+    // 增加玩家生命上限（范围：20-40）
+    private void addMaxHealth40(CommandSender sender, String[] args) {
+        try {
+            String playerName = args[2];
+            int addHealth = Integer.parseInt(args[3]);
+            Player targetPlayer = sender.getServer().getPlayer(playerName);
+            //获取玩家当前最大生命值
+            double currentMaxHealth = targetPlayer.getMaxHealth();
+            if (currentMaxHealth <= 40) {
+                // 设置新的生命值上限
+                double newMaxHealth = Math.min(currentMaxHealth + addHealth, 40);
+                // 设置新的生命值上限
+                targetPlayer.setMaxHealth(newMaxHealth);
+                sender.sendMessage("玩家生命上限已增加");
+            } else {
+                sender.sendMessage("玩家生命值已达上限");
             }
         } catch (NumberFormatException e) {
             sender.sendMessage("参数错误");

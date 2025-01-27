@@ -46,7 +46,10 @@ public class PlayerOffHandListener implements Listener {
     public void handlePlayer(Player player) {
         ItemStack offHandItem = player.getInventory().getItemInOffHand();
         UUID playerId = player.getUniqueId();
-        boolean shouldHide = offHandItem != null && offHandItem.getType() == Material.valueOf(plugin.getConfig().getString("hideOnMap.Item.material")) && offHandItem.getItemMeta().getDisplayName().equals(plugin.getConfig().getString("hideOnMap.Item.name"));
+        boolean shouldHide = offHandItem != null
+                && offHandItem.getType() == Material.valueOf(plugin.getConfig().getString("hideOnMap.Item.material"))
+                && offHandItem.getItemMeta().getDisplayName().equals(plugin.getConfig().getString("hideOnMap.Item.name"))
+                ;
 
         if (shouldHide && !hideOnMapPlayers.contains(playerId)) {
             hideOnMapPlayers.add(playerId);
